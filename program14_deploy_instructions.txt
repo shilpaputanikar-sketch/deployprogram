@@ -1,0 +1,51 @@
+DEPLOY FLASK API ON RENDER (FREE)
+===================================
+
+Step 1: Create requirements.txt
+    pip freeze > requirements.txt
+
+Step 2: Create Procfile (no extension)
+    web: gunicorn app:app
+
+Step 3: Push code to GitHub
+    git init
+    git add .
+    git commit -m "Ready for deploy"
+    git remote add origin https://github.com/yourusername/your-repo.git
+    git push -u origin main
+
+Step 4: Go to https://render.com
+    - Sign up with GitHub
+    - Click "New +" > "Web Service"
+    - Connect your GitHub repository
+    - Set:
+        Name: your-api-name
+        Environment: Python
+        Build Command: pip install -r requirements.txt
+        Start Command: gunicorn app:app
+    - Choose Free plan
+    - Click "Create Web Service"
+
+Step 5: Wait 2-3 min for deployment
+    URL: https://your-api-name.onrender.com
+
+Step 6: Test
+    curl https://your-api-name.onrender.com/users
+
+
+ALTERNATIVE: PYTHONANYWHERE
+============================
+1. Go to https://www.pythonanywhere.com
+2. Create free account
+3. Dashboard > Web > Add web app
+4. Choose Flask, Python version
+5. Upload code or clone from GitHub
+6. Reload web app
+7. URL: https://yourusername.pythonanywhere.com
+
+
+ALTERNATIVE: VERCEL (for Node.js apps)
+======================================
+1. npm install -g vercel
+2. vercel login
+3. vercel --prod
