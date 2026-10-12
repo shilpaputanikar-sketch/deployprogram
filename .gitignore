@@ -1,0 +1,13 @@
+*.exe
+*.msi
+*.iso
+*.dmg
+__pycache__/
+*.pyc
+venv/
+.venv/
+*.db
+~$*
+.env
+*.log
+node_modules/
